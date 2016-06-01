@@ -30,6 +30,7 @@ mainApp.controller("headerController", function($scope, $rootScope, $http) {
         $http.get("/api/users/logout")
             .success(function(data) {
                 $rootScope.userData = null;
+		window.location.href = "web/index"; 
             });
     };
 });

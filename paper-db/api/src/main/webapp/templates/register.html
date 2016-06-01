@@ -1,22 +1,22 @@
 <div class="ui olive segment" style="width: 500px; margin: auto;">
     <div class="ui form">
         <div class="field">
-            <label>用户名</label>
-            <input placeholder="用户名" type="text" maxlength="32" ng-model="name" ng-disabled="editBlock">
+            <label>username</label>
+            <input placeholder="username" type="text" maxlength="32" ng-model="name" ng-disabled="editBlock">
         </div>
         <div class="field">
-            <label>邮箱</label>
-            <input placeholder="邮箱" type="text" maxlength="64" ng-model="email" ng-disabled="editBlock">
+            <label>email</label>
+            <input placeholder="email" type="text" maxlength="64" ng-model="email" ng-disabled="editBlock">
         </div>
         <div class="field">
-            <label>密码</label>
-            <input placeholder="密码" type="password" maxlength="64" ng-model="password" ng-disabled="editBlock">
+            <label>password</label>
+            <input placeholder="password" type="password" maxlength="64" ng-model="password" ng-disabled="editBlock">
         </div>
         <div class="field">
-            <label>密码确认</label>
-            <input placeholder="密码确认" type="password" maxlength="64" ng-model="passwordv" ng-disabled="editBlock">
+            <label>repeat password</label>
+            <input placeholder="password again.." type="password" maxlength="64" ng-model="passwordv" ng-disabled="editBlock">
         </div>
         <div style="margin-bottom: 10px;" ng-style="messageColor">{{message}}</div>
-        <button class="ui button olive" ng-click="register()" ng-disabled="editBlock">注册</button>
+        <button class="ui button olive" ng-click="register()" ng-disabled="editBlock">Register</button>
     </div>
 </div>

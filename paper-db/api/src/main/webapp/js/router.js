@@ -5,6 +5,10 @@ mainApp.config(function($routeProvider, $locationProvider) {
             templateUrl: "templates/index.html",
             controller: "IndexController"
         })
+	.when("/web/home", {
+	    templateUrl: "templates/home.html",
+	    controller: "HomeController"
+	})
         .when("/web/users/register", {
             templateUrl: "templates/register.html",
             controller: "RegisterController"
@@ -13,21 +17,9 @@ mainApp.config(function($routeProvider, $locationProvider) {
             templateUrl: "templates/login.html",
             controller: "LoginController"
         })
-        .when("/web/users", {
-            templateUrl: "templates/users.html",
-            controller: "UsersController"
-        })
-        .when("/web/users/:userId", {
-            templateUrl: "template/users_id.html",
-            controller: "UsersIdController"
-        })
-        .when("/web/restaurants", {
-            templateUrl: "templates/restaurants.html",
-            controller: "RestaurantsController"
-        })
-        .when("/web/restaurants/:restaurantId", {
-            templateUrl: "templates/restaurant.html",
-            controller: "RestaurantsController"
+        .when("/web/papers", {
+            templateUrl: "templates/papers.html",
+            controller: "PapersController"
         })
         .when("/", {
             redirectTo: "/web/index"

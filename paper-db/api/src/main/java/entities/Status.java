@@ -12,11 +12,20 @@ public class Status {
 	static {
 		// Define errorcode for common errors.
 		status = new HashMap<Integer, String>();
-		status.put(0, "自定义错误。");
-		status.put(1, "成功。");
-		status.put(2, "用户未登录。");
-		status.put(3, "用户没有操作权限啊。");
-
+		status.put(0, "Self-defined Error");
+		status.put(1, "Success");
+		status.put(2, "User not Login");
+		status.put(3, "User have No Authentication");
+		status.put(4, "Data not exists");
+	}
+	
+	public Status(Boolean success) {
+		setSuccess(success);
+		if (success) {
+			setErrorCode(1);
+		} else {
+			setErrorCode(4);
+		}
 	}
 
 	public Status(Boolean success, String message) {

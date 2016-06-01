@@ -2,7 +2,7 @@ package configs;
 
 public class Config {
 	public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-	public static final String DB_ADDRESS = "jdbc:mysql://127.0.0.1:3306/blueduck";
+	public static final String DB_ADDRESS = "jdbc:mysql://127.0.0.1:3306/paper_db";
 	public static final String DB_USER = "root";
 	public static final String DB_PASSWD = "123456";
 	

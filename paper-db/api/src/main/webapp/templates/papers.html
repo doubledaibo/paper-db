@@ -1,0 +1,57 @@
+<div class="ui segments"> 
+ 	<div class="ui olive segment">
+	  <select id="project" class="ui search dropdown" ng-model="chosenProject" ng-options="project as project for project in projects">
+		<option value=''>Project</option>
+	  </select>
+	  <button id="address-searcher" class="ui olive labeled button" ng-click="acquirePapersId()">
+		<i class="search icon"></i>Search Papers
+	  </button>
+	</div>
+	<div class="ui olive segment" ng-show="loadPaperList">
+		Results<div class="ui buttons">
+				<button class="ui large basic icon button" ng-click="decreasePageList()">
+				<i class="chevron circle left icon"></i>
+				</button>
+				<button class="ui large {{pageButtonColor[page - range[0]]}} button" ng-repeat="page in range" ng-click="getCurrentPagePapers(page)">
+				{{page}}
+				</button>
+				<button class="ui large basic icon button" ng-click="increasePageList()">
+				<i class="chevron circle right icon"></i>
+				</button>
+		</div>	
+	</div>
+	<div class="ui olive segment" ng-show="loadPaperList && loadPaper">
+	  <table class="ui celled padded table"> 
+		<thead>
+			<tr>
+				<th>Paper Name</th>
+				<th>Paper Content</th>
+				<th>Paper Highlights</th>
+				<th>Paper Limitation</th>
+				<th>Bib</th>
+				<th>Year</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="paper in currentPagePapers">
+			<td>{{paper.name}}</td>
+			<td>{{paper.content}}</td>
+			<td>{{paper.highlight}}</td>
+			<td>{{paper.limit}}</td>
+			<td>{{paper.bib}}</td>
+			<td>{{paper.year}}</td>
+			<td>
+			<button class="ui button olive" ng-click="removePaper(paper.id)" ng-disabled="userData == null">Remove
+			</button>
+			</td>
+		</tr>
+		</tbody>
+	  </table>
+	</div>		
+	<div class="ui inverted olive segment" ng-show="!loadPaperList || !loadPaper || deletePaper">
+		{{message}}
+	</div>	
+</div>
+
+<script type="text/javascript"> $('.ui.dropdown').dropdown(); </script>

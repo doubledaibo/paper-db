@@ -29,7 +29,7 @@ mainApp.controller("LoginController", function($scope, $rootScope, $http) {
                 $scope.message = data.message;
                 if (data.success) {
                     $rootScope.getUserInfo();
-                    window.location.href = "/web/index";
+                    window.location.href = "/web/home";
                 } else {
                     $scope.messageColor.color = "red";
                 }
