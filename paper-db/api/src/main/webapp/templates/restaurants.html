@@ -1,0 +1,105 @@
+<div class="ui segments" ng-controller="RestaurantsController"> 
+ 	<div class="ui olive segment">
+	  <select id="province" class="ui search dropdown" ng-model="chosenProvince" ng-options="province as (province.name) for province in provinces" ng-change="provinceChange()">
+		<option value=''>省份</option>
+	  </select>
+	  <select id="city" class="ui search dropdown" data-ng-model="chosenCity" data-ng-options="city as (city.name) for city in cities" ng-change="cityChange()">
+		<option value=''>城市</option>
+	  </select>
+	  <select id="district" class="ui search dropdown" ng-model="chosenDistrict" ng-options="district as (district.name) for district in districts" ng-change="districtChange()">
+		<option value=''>地区</option>
+	  </select>
+	  <button id="address-searcher" class="ui olive labeled button" ng-click="acquireRestaurantsId()">
+		<i class="search icon"></i>搜索餐厅
+	  </button>
+	</div>
+	<div class="ui olive segment" ng-show="loadRestaurantList">
+		搜索结果<div class="ui buttons">
+				<button class="ui large basic icon button" ng-click="decreasePageList()">
+				<i class="chevron circle left icon"></i>
+				</button>
+				<button class="ui large {{pageButtonColor[page - range[0]]}} button" ng-repeat="page in range" ng-click="getCurrentPageRestaurants(page)">
+				{{page}}
+				</button>
+				<button class="ui large basic icon button" ng-click="increasePageList()">
+				<i class="chevron circle right icon"></i>
+				</button>
+		</div>	
+	</div>
+	<div class="ui olive segment" ng-show="loadRestaurantList && loadRestaurant">
+	  <div class="ui link cards"> 
+		  <div class="ui card" ng-repeat="restaurant in currentPageRestaurants">
+		  	<div class="ui slide masked reveal image">
+		    		<img src="{{restaurant.image_default}}" class="visible content">
+		    		<div class="hidden content">
+					<div style="font-weight : bold; color : black">
+						<div>{{restaurant.description}}</div>
+						<div>注册时间:{{restaurant.register_time}}</div>
+					</div>
+				</div>
+		  	</div>
+		  	<div class="content">
+		    		<a class="header">{{restaurant.name}}</a>
+		    		<div class="meta">
+		      			<span class="date">营业时间:{{restaurant.open_time}}</span>
+		    		</div>
+		    		<div class="description">
+					<div style="color: grey">地址</div>
+					<div style="font-weight : bold; color : black">
+						{{restaurant.location.province}} - 
+						{{restaurant.location.city}} -
+						{{restaurant.location.district}} -
+						{{restaurant.location.street}} </div>
+		      			<div style="color: grey">电话</div>
+					<div style="font-weight : bold; color : black">
+						{{restaurant.phone_number}}
+					</div>
+					<div ng-show="{{restaurant.take_out}}">
+						提供外卖
+					</div>
+		    		</div>
+		  	</div>
+		  	<div class="extra content">
+				<table>	
+					<tr>
+					<td> <i class="heart icon"></i>评分</td>
+					<td>{{restaurant.rate_total / restaurant.rate_count}}</td>
+					<td> <i class="plus icon"></i>收藏</td>
+					<td>{{restaurant.collect_count}}</td>
+					</tr>
+					<tr>
+					<td><i class="thumbs up icon"></i>点赞</td>
+					<td>{{restaurant.praise_count}}</td>
+					<td><i class="align justify icon"></i>评论</td>
+					<td>{{restaurant.comment_count}}</td>
+					</tr>
+				</table>
+		  	</div>
+		</div>
+	  </div>
+	</div>		
+	<div class="ui olive segment" ng-show="!loadRestaurantList || !loadRestaurant">
+		{{message}}
+	</div>	
+</div>
+
+<!--<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="/images/avatar/large/jenny.jpg" class="visible content">
+    <div class="hidden content"> <div class="header">a good restaurant</div> </div>
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Create in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <div>
+      <i class="users icon"></i>
+      2 Members
+    </div>
+  </div>
+</div>-->
+
+<script type="text/javascript"> $('.ui.dropdown').dropdown(); </script>

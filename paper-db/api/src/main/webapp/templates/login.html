@@ -1,0 +1,24 @@
+<div class="ui olive segment" style="width: 500px; margin: auto;">
+    <!-- Login div -->
+    <div class="ui form" ng-show="userData == null || loginExpire">
+        <div class="field">
+            <label>账号</label>
+            <input placeholder="用户名或邮箱" type="text" maxlength="64" ng-model="account" ng-disabled="editBlock">
+        </div>
+        <div class="field">
+            <label>密码</label>
+            <input placeholder="密码" type="password" maxlength="64" ng-model="password" ng-disabled="editBlock">
+        </div>
+        <div style="margin-bottom: 10px;" ng-style="messageColor">{{message}}</div>
+        <button class="ui button olive" ng-click="login()" ng-disabled="editBlock">登陆</button>
+    </div>
+    <!-- Show already login info -->
+    <div class="ui form" ng-show="userData != null && !loginExpire">
+        <div class="field">
+            <label>账号</label>
+            <input placeholder="{{userData.name}}" type="text" maxlength="64" ng-disabled="true">
+            <label>已登录</label>
+        </div>
+        <button class="ui button olive" ng-click="logout()" ng-disabled="editBlock">登出</button>
+    </div>
+</div>

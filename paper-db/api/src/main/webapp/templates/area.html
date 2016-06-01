@@ -1,0 +1,40 @@
+<div class="ui olive segment">
+  <div class="ui selection dropdown">
+  	<input name="chosen-province" type="hidden" value="empty"/>
+	<i class="dropdown icon"></i>
+  	<div class="default text">Province</div>
+	<div class="menu">
+		<div data-value="{{province.name}}" class="item" ng-repeat="province in address" ng-click="selectProvince(province)">
+			{{province.name}}
+		</div>
+	</div>
+  </div>
+  <div class="ui selection dropdown">
+	<input name="chosen-city" type="hidden" value="empty"/>
+	<i class="dropdown icon"></i>
+	<div class="default text">City</div>
+	<div class="menu">
+		<div data-value="{{city.name}}" class="item" ng-repeat="city in cities" ng-click="selectCity(city)">
+			{{city.name}}
+		</div>
+	</div>
+  </div>
+  <div class="ui selection dropdown">
+	<input name="chosen-district" type="hidden" value="empty"/>
+	<i class="dropdown icon"></i>
+	<div class="default text">District</div>
+	<div class="menu">
+		<div data-value="{{district.name}}" class="item" ng-repeat="district in districts" ng-click="selectDistrict(district)">
+		{{district.name}}
+		</div>
+	</div>
+  </div>
+</div>
+
+
+<div class="ui green segment">
+ <p>{{chosen-province}}</p>
+ <p>{{chosen-city}}</p>
+ <p>{{chosen-district}}</p>
+</div>
+

@@ -1,0 +1,16 @@
+paper-db
+	api
+		src/main
+			java
+				application
+				config
+				controller
+				entity
+			webapp
+				js
+				css
+				template
+				fonts
+				images
+
+system
