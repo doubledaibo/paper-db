@@ -1,6 +1,6 @@
 .DS_Store
 .metadata
-.gradle
+paper-db/.gradle
 *~
 
 
