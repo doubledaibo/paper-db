@@ -19,15 +19,21 @@
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript" src="js/register.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/papers.js"></script> 
+    <script type="text/javascript" src="js/papers.js"></script>
+    <script type="text/javascript" src="js/notes.js"></script> 
+    <script type="text/javascript" src="js/addPaper.js"></script>
+    <script type="text/javascript" src="js/addNote.js"></script>
 </head>
 
 <body ng-app="mainApp">
     <!-- Header -->
     <div class="ui olive inverted menu" ng-controller="headerController">
         <!--<img src="images/logo.png" alt="some_text">-->
-        <a class="item" href="/web/home" ng-show="userData != null">Home</a>
-        <a class="item" href="/web/papers">Papers</a>
+        <a class="item" href="/web/home" ng-show="userData != null">Home</a>	
+	<a class="item" href="/web/addPaper" ng-show="userData != null">AddPaper</a>
+	<a class="item" href="/web/addNote" ng-show="userData != null">AddNote</a>
+	<a class="item" href="/web/papers">Papers</a>
+	<a class="item" href="/web/notes">Notes</a>
         <div class="right menu">
             <div class="ui dropdown item right" ng-show="userData != null">
                 {{userData.name}}

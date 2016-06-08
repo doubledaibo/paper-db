@@ -1,0 +1,14 @@
+<div class="ui olive segment" style="width: 500px; margin: auto;">
+	<div class="ui form">
+		<div class="field">
+			<label>Related Project</label>
+			<input placeholder="Project" type="text" maxlength="2000" ng-model="project" ng-disabled="disable">
+		</div>
+		<div class="field">
+			<label>Note Content</label>
+			<textarea placeholder="Content" ng-model="content" ng-disabled="disable"></textarea>
+		</div>
+		<div style="margin-bottom: 10px;" ng-style="messageColor">{{message}}</div>
+		<button class="ui button olive" ng-click="addNote()" ng-disabled="disable">Add Note</button>
+	</div>
+</div>

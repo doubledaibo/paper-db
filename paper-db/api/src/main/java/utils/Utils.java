@@ -28,9 +28,7 @@ public class Utils {
 		return cookie.toString();
 	}
 
-	public static String formatDate(Date date) {
-		DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss",
-				Locale.CHINA);
-		return format.format(date);
+	public static String currentDateTime() {
+		return Config.DATE_FOMAT.format(new Date());
 	}
 }

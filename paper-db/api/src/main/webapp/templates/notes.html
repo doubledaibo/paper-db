@@ -1,0 +1,47 @@
+<div class="ui segments"> 
+ 	<div class="ui olive segment">
+	  <select id="project" class="ui search dropdown" ng-model="chosenProject" ng-options="project as project for project in projects">
+		<option value=''>Project</option>
+	  </select>
+	  <button id="address-searcher" class="ui olive labeled button" ng-click="acquireNotesId()">
+		<i class="search icon"></i>Search Notes
+	  </button>
+	</div>
+	<div class="ui olive segment" ng-show="loadNoteList">
+		Results<div class="ui buttons">
+				<button class="ui large basic icon button" ng-click="decreasePageList()">
+				<i class="chevron circle left icon"></i>
+				</button>
+				<button class="ui large {{pageButtonColor[page - range[0]]}} button" ng-repeat="page in range" ng-click="getCurrentPageNotes(page)">
+				{{page}}
+				</button>
+				<button class="ui large basic icon button" ng-click="increasePageList()">
+				<i class="chevron circle right icon"></i>
+				</button>
+		</div>	
+	</div>
+	<div class="ui olive segment" ng-show="loadNoteList && loadNote">
+	  <table class="ui celled padded table"> 
+		<thead>
+			<tr>
+				<th>Note Content</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="note in currentPageNotes">
+			<td>{{note.content}}</td>
+			<td>
+			<button class="ui button olive" ng-click="removeNote(note.id)" ng-disabled="userData == null">Remove
+			</button>
+			</td>
+		</tr>
+		</tbody>
+	  </table>
+	</div>		
+	<div class="ui inverted olive segment" ng-show="!loadNoteList || !loadNote || deleteNote">
+		{{message}}
+	</div>	
+</div>
+
+<script type="text/javascript"> $('.ui.dropdown').dropdown(); </script>
