@@ -1,5 +1,7 @@
 Info:
 	A small paper-database used for record paper's information, targetting convinient related work search and citation management.
+	Add function:
+		Note for different projects can be added. 
 	A web-app with java and mysql.
 
 Prepare:
